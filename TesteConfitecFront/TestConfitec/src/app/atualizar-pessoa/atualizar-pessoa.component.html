@@ -1,0 +1,71 @@
+<div class="tela-cadastro">
+  <div class="titulo">
+    {{data.nome}} {{data.sobrenome}}
+  </div>
+
+  <form class="conteudo-form" [formGroup]="cadastroForm">
+    <div>
+      <div class="form-field">
+        <p>Nome</p>
+        <input class="input-form" placeholder="nome" formControlName="nome" />
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('nome')?.errors?.required && cadastroForm.get('nome')?.touched">
+            Campo Obrigatorio!
+        </div>
+      </div>
+      <div class="form-field">
+        <p>Sobrenome</p>
+        <input class="input-form" placeholder="sobrenome" formControlName="sobrenome" />
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('sobrenome')?.errors?.required && cadastroForm.get('sobrenome')?.touched">
+            Campo Obrigatorio!
+        </div>
+      </div>
+      <div class="form-field">
+        <p>Email</p>
+        <input class="input-form" placeholder="email" formControlName="email" />
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('email')?.errors?.email && cadastroForm.get('email')?.touched">
+            Email Invalido
+        </div>
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('email')?.errors?.required && cadastroForm.get('email')?.touched">
+            Campo Obrigatorio!
+        </div>
+      </div>
+      <div class="form-field">
+        <p>Data de Nascimento </p>
+        <input 
+          class="input-form"
+          placeholder="Data de Nascimento"
+          formControlName="dataNascimento"
+          type="date"
+          [ngModel] ="dt | date:'yyyy-MM-dd'"
+        />
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('dataNascimento')?.errors?.required && cadastroForm.get('dataNascimento')?.touched">
+            Campo Obrigatorio!
+        </div>
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('dataNascimento')?.errors?.dataValidator && cadastroForm.get('dataNascimento')?.touched">
+            Data Inválida
+        </div>
+      </div>
+      <div class="form-field">
+        <select formControlName="escolaridade">
+          <option value="" selected disabled hidden>Selecione a escolaridade</option>
+          <option *ngFor="let key of enumKeys" [ngValue]="key">{{enumsEscolaridade[key]}}</option>
+        </select>
+        <div class="mensagem-erro"
+            *ngIf="cadastroForm.get('escolaridade')?.errors?.required && cadastroForm.get('escolaridade')?.touched">
+            Campo Obrigatorio!
+        </div>
+      </div>
+    </div>
+
+    <div class="button">
+      <button class="input-submit" (click)="atualizar(data)"> Cadastrar </button>
+    </div>
+    
+  </form>
+</div>

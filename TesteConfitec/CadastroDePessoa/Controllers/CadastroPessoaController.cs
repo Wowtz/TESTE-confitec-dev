@@ -37,9 +37,8 @@ namespace CadastroDePessoa.Controllers
         {
             try
             {
+                //se precisar validar emails iguais também
                 var validador = await _ICadastroPessoaApplication.ValidateEmail(cadastroPessoa.Email);
-
-                if (validador) { return Ok("Email Ja Cadastrado"); }
 
                 var cadastro = new CadastroPessoa();
                 if (cadastroPessoa != null)
@@ -51,7 +50,7 @@ namespace CadastroDePessoa.Controllers
                     cadastro.Escolaridade = cadastroPessoa.Escolaridade;
                 }
 
-                
+                    
                 await _ICadastroPessoaApplication.Add(cadastro);
 
                 return Ok(cadastro);
@@ -69,7 +68,7 @@ namespace CadastroDePessoa.Controllers
             try
             {
                 var cadastro = await _ICadastroPessoaApplication.FindById(cadastroPessoa.Id);
-                if (cadastroPessoa != null)
+                if (cadastroPessoa != null && cadastro != null)
                 {
                     cadastro.Id = cadastroPessoa.Id;
                     cadastro.Nome = cadastroPessoa.Nome;

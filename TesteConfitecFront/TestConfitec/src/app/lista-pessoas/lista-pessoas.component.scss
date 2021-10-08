@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  margin-top: 20px;
+  thead {
+    background-color: rgb(202, 202, 202);
+    height: 30px;
+  }
+  td {
+    margin-left: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  tr {
+    width: 100%;
+  }
+  
+  .menu {
+    width: 100px;
+  }
+}

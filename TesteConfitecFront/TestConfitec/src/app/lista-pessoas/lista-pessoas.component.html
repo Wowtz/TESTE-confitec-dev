@@ -1,0 +1,30 @@
+<div class="tabela-pessoas">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Escolaridade</th>
+        <th scope="col" class="menu">Menu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoasLista;">
+        <th scope="row">{{pessoa.id}}</th>
+        <th scope="row">{{pessoa.nome}}</th>
+        <th scope="row">{{pessoa.sobrenome}}</th>
+        <th scope="row">{{pessoa.email}}</th>
+        <th scope="row">{{pessoa.dataNascimento | date:"dd/MM/yyyy"}}</th>
+        <th scope="row">{{escolaridadeEnum[pessoa.escolaridade]}}</th>
+        <td>
+          <button type="button" (click)="editar(pessoa.id)">Atualizar</button>
+          <button type="button" (click)="deletar(pessoa.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
