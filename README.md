@@ -1,4 +1,4 @@
-# TESTE-confitec-dev
+# Confitec - Teste dev JR
 
-TesteConfitec => Backend .NetCore
-TestConfitecFront/TestConfitec => Frontend Angular
+<p>TesteConfitec => Backend .NetCore</p>
+<p>TestConfitecFront/TestConfitec => Frontend Angular</p>
